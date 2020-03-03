@@ -1,6 +1,7 @@
+#include "types.h"
 void printf(char* str)
 {
-    static unsigned short* VideoMemory = (unsigned short*)0xb8000;
+    static uint16_t* VideoMemory = (uint16_t*)0xb8000;
 
     for (int i = 0; str[i] != '\0'; ++i)
     {
@@ -18,9 +19,7 @@ extern "C" void callConstructors()
         (*i)();
 }
 
-
-
-extern "C" void kernelMain(const void* multiboot_structure, unsigned int /*magicnumber*/)
+extern "C" void kernelMain(const void* multiboot_structure, uint32_t /*magicnumber*/)
 {
     printf("Hello, world! Feito por Odilon Damasceno github.com/OdilonDamasceno");
     while (1);
